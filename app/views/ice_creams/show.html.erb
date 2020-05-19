@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ice_cream.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @ice_cream.category %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @ice_cream.brand %>
+</p>
+
+<p>
+  <strong>Base flavor:</strong>
+  <%= @ice_cream.base_flavor %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ice_cream.description %>
+</p>
+
+<%= link_to 'Edit', edit_ice_cream_path(@ice_cream) %> |
+<%= link_to 'Back', ice_creams_path %>

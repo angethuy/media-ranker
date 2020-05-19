@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ice Creams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Brand</th>
+      <th>Base flavor</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ice_creams.each do |ice_cream| %>
+      <tr>
+        <td><%= ice_cream.name %></td>
+        <td><%= ice_cream.category %></td>
+        <td><%= ice_cream.brand %></td>
+        <td><%= ice_cream.base_flavor %></td>
+        <td><%= ice_cream.description %></td>
+        <td><%= link_to 'Show', ice_cream %></td>
+        <td><%= link_to 'Edit', edit_ice_cream_path(ice_cream) %></td>
+        <td><%= link_to 'Destroy', ice_cream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ice Cream', new_ice_cream_path %>
