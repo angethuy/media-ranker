@@ -1,7 +1,22 @@
 require "test_helper"
 
 describe User do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "validations" do
+    it "is valid when user has a name" do
+    end
+
+    it "is invalid when user name is empty string" do
+    end
+
+    it "is invalid when user name is nil" do
+    end
+  end
+
+  describe "relationships" do
+    it "has votes" do
+    end
+
+    it "has ice creams through votes" do
+    end
+  end
 end

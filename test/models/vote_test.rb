@@ -1,7 +1,11 @@
 require "test_helper"
 
 describe Vote do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "relations" do
+    it "has a user" do
+    end
+
+    it "has an ice cream" do
+    end
+  end
 end
