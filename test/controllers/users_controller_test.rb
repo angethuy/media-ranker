@@ -13,12 +13,23 @@ describe UsersController do
     must_respond_with :success
   end
 
-  it "should create user" do
-    assert_difference("User.count") do
-      post users_url, params: { user: { name: user.name } }
+  describe "create" do
+    let(:ref_path){ "/i_like_ice_cream" } #simulate login from arbitrary page
+
+    it "should create a unique user" do
+      assert_difference("User.count") do
+        post users_url, params: { user: { name: "Finn" } }, headers: { "HTTP_REFERER": ref_path} 
+      end
+      must_redirect_to ref_path
     end
 
-    must_redirect_to user_url(User.last)
+
+    it "should not create already existing user" do
+      assert_no_difference("User.count") do
+        post users_url, params: { user: { name: user.name } }
+      end
+    end
+
   end
 
   it "should show user" do
