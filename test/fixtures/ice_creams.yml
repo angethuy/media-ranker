@@ -1,0 +1,18 @@
+spumoni: 
+  name: Spumoni
+  category: scoop
+  brand: Mitchell's
+  base_flavor: vanilla
+  description: the taste of the holidays in one frozen scoop
+classic: 
+  name: The Classic Sandwich
+  category: shape
+  brand: Garden Creamery
+  base_flavor: vanilla
+  description: Madagascar vanilla mouse sandwiched between Mom's oatmeal cookies, half dipped in dark chocolate
+strawberry: 
+  name: Balsamic Strawberry Popsicle
+  category: stick
+  brand: Bi-Rite
+  base_flavor: strawberry
+  description: Balsamic Strawberry with White Chocolate and Graham Cracker
