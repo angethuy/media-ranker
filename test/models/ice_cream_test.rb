@@ -45,8 +45,7 @@ describe IceCream do
     before do
       @ice_cream = ice_creams(:spumoni)
       @user = users(:picchu)
-      vote = Vote.create(ice_cream_id: @ice_cream.id, user_id: @user.id)
-      
+      vote = Vote.create(ice_cream_id: @ice_cream.id, user_id: @user.id, value: 1)
     end
 
     it "has/responds to votes" do 
@@ -57,7 +56,7 @@ describe IceCream do
     it "has/responds to users through votes" do
       expect(@ice_cream.respond_to?(:users)).must_equal true
       expect(@ice_cream.users.count).must_equal 1
-      Vote.create(ice_cream_id: @ice_cream.id, user_id: @user.id)
+      Vote.create(ice_cream_id: @ice_cream.id, user_id: @user.id, value: 1)
       expect(@ice_cream.users.count).must_equal 2
     end
   end
