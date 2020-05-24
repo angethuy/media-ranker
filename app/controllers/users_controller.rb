@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def sign_in_as(user)
-    post users_url, params: { user } 
+    # post users_url, params: { user } 
   end
 
   private
