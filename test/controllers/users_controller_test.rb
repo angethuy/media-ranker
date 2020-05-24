@@ -30,6 +30,9 @@ describe UsersController do
       end
     end
 
+    it "should correctly set session when a valid user is found" do
+    end
+
   end
 
   it "should show user" do
