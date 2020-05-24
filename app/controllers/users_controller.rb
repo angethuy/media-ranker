@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_in_as(user)
+    post users_url, params: { user } 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
