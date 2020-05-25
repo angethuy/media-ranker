@@ -2,22 +2,9 @@
 
 <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "shared/table", locals: { 
+    data: @users,
+    col_headers: ["Name", "# of Votes","date joined"], 
+    fields: [ "name", "votes", "created_at"] }%>
 
 <br>
