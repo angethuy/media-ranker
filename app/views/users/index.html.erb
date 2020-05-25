@@ -1,5 +1,6 @@
 <main>
   <h2>List of Users</h2>
+  <% if @users.count > 0 %>
   <table class="table">
     <thead>
       <tr>
@@ -9,17 +10,16 @@
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.name, user_path(user.id)%></td>
         <td><%= user.votes.count %></td>
         <td><%= user.created_at %></td>
       </tr>
-      <% end %>
+    <% end %>
     </tbody>
-
-
   </table>
-
-
+  <% else %>
+    <p>No users yet ):</p>
+  <% end %>
 </main>
