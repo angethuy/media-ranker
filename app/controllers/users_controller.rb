@@ -33,8 +33,22 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_as_user
-    
+  def login_form
+    session[:return_to] = request.referer
+    @user = User.new
+  end
+
+  def login 
+    username = params[:username]
+    user = User.find_by(name: username)
+    if user #existing user found
+      result = { success: "Welcome back #{user.name}! Successfully logged in."}
+    else
+      user = User.create(username: username)
+      result = { success: "Logged in as new user #{user.name}." }
+    end
+    session[:user] = user
+    redirect_to session.delete(:return_to), flash: result
   end
 
   private
