@@ -4,28 +4,32 @@
 
   <section class="user-votes__container">
     <h3 class="user-votes__header">Votes</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ice cream name</th>
-          <th>brand</th>
-          <th>base flavor</th>
-          <th>category</th>
-          <th>voted on</th>
-        <tr>
-      </thead>
-      <tbody>
-        <% @user.votes.each do |vote| %>
+    <% if @user.votes.count > 0 %>
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= link_to vote.ice_cream.name, ice_cream_url(vote.ice_cream_id)%></td>
-            <td><%= vote.ice_cream.brand %></td>
-            <td><%= vote.ice_cream.base_flavor %></td>
-            <td><%= vote.ice_cream.category %></td>
-            <td><%= vote.created_at %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            <th>ice cream name</th>
+            <th>brand</th>
+            <th>base flavor</th>
+            <th>category</th>
+            <th>voted on</th>
+          <tr>
+        </thead>
+        <tbody>
+          <% @user.votes.each do |vote| %>
+            <tr>
+              <td><%= link_to vote.ice_cream.name, ice_cream_url(vote.ice_cream_id)%></td>
+              <td><%= vote.ice_cream.brand %></td>
+              <td><%= vote.ice_cream.base_flavor %></td>
+              <td><%= vote.ice_cream.category %></td>
+              <td><%= vote.created_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><%= @user.name %> has not voted on any ice creams yet ):</p>
+    <% end %>
 
   </section>
 
