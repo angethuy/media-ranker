@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     if user #existing user found
       result = { success: "Welcome back #{user.name}! Successfully logged in."}
     else
-      user = User.create(username: username)
+      user = User.create(name: username)
       result = { success: "Logged in as new user #{user.name}." }
     end
     session[:user] = user
