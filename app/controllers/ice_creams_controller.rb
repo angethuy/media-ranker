@@ -76,18 +76,8 @@ class IceCreamsController < ApplicationController
     }
 
     vote = Vote.create(vote_data)
-
-    if vote.save 
-      flash[:success] = "woohoo"
-      redirect_back(fallback_location: root_path)
-    else 
-      flash[:danger] = "oh nooo"
-      redirect_back(fallback_location: root_path)
-    end
-  
-    # result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
-    # redirect_back(fallback_location: root_path, alert: "something happened")
-
+    result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
+    redirect_back(fallback_location: root_path, flash: result)
   end
 
   private
