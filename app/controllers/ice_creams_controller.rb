@@ -87,13 +87,13 @@ class IceCreamsController < ApplicationController
     end
 
     def set_user 
-      @user = User.find_by(id: 1)
-      # if session[:user]
-      #   @user = session[:user]
-      # else 
-      #   redirect_back(fallback_location: root_path)
-      #   flash[:danger] = "Not logged in."
-      # end
+      # @user = User.find_by(id: 1)
+      if session[:user_id]
+        @user = User.find_by(id: session[:user_id])
+      else 
+        redirect_back(fallback_location: root_path)
+        flash[:danger] = "Not logged in."
+      end
     end
 
     # Only allow a list of trusted parameters through.
