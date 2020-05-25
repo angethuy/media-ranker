@@ -63,15 +63,30 @@ class IceCreamsController < ApplicationController
   end
 
   def vote 
-    params = {
+
+    if @ice_cream.votes.find_by(user_id: @user.id) #user has already voted for this
+      redirect_back(fallback_location: root_path, flash: { danger: "Already voted for that!"})
+      return
+    end
+
+    vote_data = {
       ice_cream_id: @ice_cream.id,
       user_id: @user.id,
       value: 1
     }
 
-    vote = Vote.create(params)
-    result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
-    redirect_back(fallback_location: root_path, flash: result)
+    vote = Vote.create(vote_data)
+
+    if vote.save 
+      flash[:success] = "woohoo"
+      redirect_back(fallback_location: root_path)
+    else 
+      flash[:danger] = "oh nooo"
+      redirect_back(fallback_location: root_path)
+    end
+  
+    # result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
+    # redirect_back(fallback_location: root_path, alert: "something happened")
 
   end
 
