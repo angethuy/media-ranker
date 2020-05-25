@@ -40,6 +40,15 @@
       </ul>
     </nav>
   </header>
+
+
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %>" role="alert">
+      <%= message.html_safe %>
+    </div>
+  <% end %>
+
+
     <%= yield %>
   </body>
 </html>
