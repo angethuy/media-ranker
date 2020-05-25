@@ -1,5 +1,6 @@
 class IceCreamsController < ApplicationController
-  before_action :set_ice_cream, only: [:show, :edit, :update, :destroy]
+  before_action :set_ice_cream, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :set_user, only: [:vote]
 
   # GET /ice_creams
   # GET /ice_creams.json
@@ -61,10 +62,33 @@ class IceCreamsController < ApplicationController
     end
   end
 
+  def vote 
+    params = {
+      ice_cream_id: @ice_cream.id,
+      user_id: @user.id,
+      value: 1
+    }
+
+    vote = Vote.create(params)
+    result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
+    redirect_back(fallback_location: root_path, flash: result)
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ice_cream
       @ice_cream = IceCream.find(params[:id])
+    end
+
+    def set_user 
+      @user = User.find_by(id: 1)
+      # if session[:user]
+      #   @user = session[:user]
+      # else 
+      #   redirect_back(fallback_location: root_path)
+      #   flash[:danger] = "Not logged in."
+      # end
     end
 
     # Only allow a list of trusted parameters through.
