@@ -20,7 +20,7 @@
         <td><%= ice_cream.name %></td>
         <td><%= ice_cream.brand %></td>
         <td><%= ice_cream.base_flavor %></td>
-        <td><%= link_to 'upvote', votes_path, method: :post, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'upvote', vote_ice_cream_path(ice_cream.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
