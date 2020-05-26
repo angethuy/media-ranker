@@ -14,14 +14,14 @@
     </li>
   </ul>
 
-  <ul class="nav app-header__user-nav-container">
+  <section class="nav app-header__user-nav-container">
   <% if logged_in %>
-    <li class="nav-item app-header__nav_item">
+
       <%= profile_button(logged_in) %>
-    </li>
+ 
   <% end %>
-    <li class="nav-item app-header__nav_item">
+   
       <%= auth_button(logged_in) %>
-    </li>
-  </ul>
+  
+  </section>
 </nav>
