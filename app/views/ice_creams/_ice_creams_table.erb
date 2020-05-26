@@ -1,23 +1,28 @@
-<table>
-  <thead>
-    <tr>
-      <th>votes</th>
-      <th>ice cream name</th>
-      <th>brand</th>
-      <th>base flavor</th>
-      <th>upvote</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ice_creams.each do |ice_cream| %>
+<% IceCream::CATEGORIES.each do |category| %>
+<section class="media-table">
+  <h4><%= category.capitalize %></h4>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= ice_cream.votes.count %></td>
-        <td><%= ice_cream.name %></td>
-        <td><%= ice_cream.brand %></td>
-        <td><%= ice_cream.base_flavor %></td>
-        <td><%= link_to 'upvote', vote_ice_cream_path(ice_cream.id), method: :post %></td>
+        <th>votes</th>
+        <th>ice cream name</th>
+        <th>brand</th>
+        <th>base flavor</th>
+        <th>upvote</th>
       </tr>
-    <% end %>
+    </thead>
+  <tbody>
+      <% @ice_creams.by_category(category).each do |ice_cream| %>
+        <tr>
+          <td width=80><%= ice_cream.votes.count %></td>
+          <td><%= ice_cream.name %></td>
+          <td><%= ice_cream.brand %></td>
+          <td width=100><%= ice_cream.base_flavor %></td>
+          <td width=100><%= link_to 'upvote', vote_ice_cream_path(ice_cream.id), method: :post %></td>
+        </tr>
+      <% end %>
   </tbody>
-</table>
+  </table>
+</section>
+<% end %>
+

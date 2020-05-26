@@ -10,4 +10,8 @@ class IceCream < ApplicationRecord
     # .where(COUNT(votes) > 0)
   }
 
+  def self.by_category(category) 
+    ice_creams_in_category = IceCream.where(category: category)
+  end
+
 end
