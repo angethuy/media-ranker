@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :ice_creams do
     post 'vote', on: :member
   end
-
-  resources :users, except: [:edit, :new, :update, :destroy]
+  
+  resources :users, except: [:edit, :new, :update, :destroy] 
   
 end
