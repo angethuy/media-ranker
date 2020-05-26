@@ -1,6 +1,7 @@
 class IceCreamsController < ApplicationController
   before_action :set_ice_cream, only: [:show, :edit, :update, :destroy, :vote]
   before_action :set_user, only: [:vote]
+  
 
   # GET /ice_creams
   # GET /ice_creams.json
@@ -65,7 +66,7 @@ class IceCreamsController < ApplicationController
   def vote 
 
     if @ice_cream.votes.find_by(user_id: @user.id) #user has already voted for this
-      redirect_back(fallback_location: root_path, flash: { danger: "Already voted for that!"})
+      redirect_back(fallback_location: root_path, flash: { danger: "#{@user.name} already upvoted #{@ice_cream.name}"})
       return
     end
 
