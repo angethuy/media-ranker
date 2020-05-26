@@ -1,10 +1,13 @@
 <main>
   <section class="spotlight">
-  <h2 class="spotlight__header">
-  <span class="spotlight__header--prefix">Ice Cream Spotlight</span>
-  <!--ERB link to top ice cream--> 
-  </h2>
-  <p class="spotlight__description"><!--ERB link to top ice cream--> </p>
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Ice Cream Spotlight: </span>
+      <%= link_to "#{@ice_creams.topmost.name}", ice_cream_path(@ice_creams.topmost.id)%>
+        from <%= @ice_creams.topmost.brand %>
+      </h2>
+  <p class="spotlight__description">
+    <%= @ice_creams.topmost.votes_count %> votes - <%= @ice_creams.topmost.description %>
+  </p>
 
   </section>
 
