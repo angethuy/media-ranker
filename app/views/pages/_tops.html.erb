@@ -3,7 +3,7 @@
   <h2 class="top-ten__header">Top <%= category.capitalize %>s</h2>
 
   <ul class="list-group top-ten__list">
-  <% IceCream.top_within_category(category).limit(10).each do |ice_cream| %>
+  <% @ice_creams.ranked_within_category(category).limit(5).each do |ice_cream| %>
     <li class="list-group-item">
         <h4>
           <%= link_to "#{ice_cream.name}", ice_cream_path(ice_cream.id)%>
