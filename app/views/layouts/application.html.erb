@@ -25,7 +25,7 @@
 
   <% flash.each do |name, message| %>
     <div class="alert alert-<%= name %>" role="alert" data-turbolinks-temporary>
-      <%= message.html_safe %>
+      <%= message %>
     </div>
   <% end %>
 
