@@ -57,11 +57,12 @@ describe UsersController do
       end
     end
 
-    it "sets the new user to session and redirects to referer" do
+    it "sets the new user to session and redirects to referer with success flash" do
       new_username = "Big Bird"
       post login_url, params: { username: new_username }
       expect(session[:user_id]).must_equal User.last.id
       must_redirect_to ref_path
+      assert_equal "Logged in as new user #{new_username} with ID: #{User.last.id}.", flash[:success]
     end
   end
 end
