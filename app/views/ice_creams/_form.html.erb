@@ -1,10 +1,9 @@
-<%= form_with(model: ice_cream, local: true) do |form| %>
-
-<% if ice_cream.errors.any? %>
+<section>
+<%= form_with model: @ice_cream, url: ice_creams_path do |f| %>
+<% if @ice_cream.errors.any? %>
 <div class="alert alert-warning">
-  <h3><%= pluralize(ice_cream.errors.count, "error") %>!</h3>
   <ul class="errors">
-    <% ice_cream.errors.each do |column, message| %>
+    <% @ice_cream.errors.each do |column, message| %>
       <li>
         <strong><%= column.capitalize %></strong> <%= message %>
       </li>
@@ -13,32 +12,28 @@
 </div>
 <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= f.label(:category, "category") %>
+    <%= f.select "category", options_for_select(IceCream::CATEGORIES), options = { class: 'form-control' } %>
   </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+  <div class="form-group">
+    <%= f.label(:name, "name") %>
+    <%= f.text_field :name, value: nil, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
+  <div class="form-group">
+    <%= f.label(:brand, "brand") %>
+    <%= f.text_field :brand, value: nil, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :base_flavor %>
-    <%= form.text_field :base_flavor %>
+  <div class="form-group">
+    <%= f.label(:base_flavor, "base flavor") %>
+    <%= f.text_field :base_flavor, value: nil, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= f.label(:description, "description") %>
+    <%= f.text_area :description, value: nil, class: 'form-control'%>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= f.submit("Create Ice Cream", options = { class: "btn btn-primary" }) %>
   </div>
 <% end %>
+</section>
