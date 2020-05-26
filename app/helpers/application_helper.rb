@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def pretty_date(date)
+    return "[unknown]" unless date
+    return content_tag(:span, date.strftime("%b %d, %Y"), class: 'date', title: date.to_s)
+  end
+
   def auth_button(user)
     if user
       return content_tag(:a, "Logout", class: 'btn btn-primary', href: '/logout', rel: "nofollow", data: { method: "post"})
