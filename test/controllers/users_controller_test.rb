@@ -67,7 +67,6 @@ describe UsersController do
   # end
 
   describe "logout" do
-
     before do 
       post logout, headers: { HTTP_REFERER: ref_path }
     end
@@ -75,7 +74,6 @@ describe UsersController do
     it "clears login session entry and redirects with success" do
       expect(session[:user_id]).must_be_nil
     end
-
   end
 end
 
