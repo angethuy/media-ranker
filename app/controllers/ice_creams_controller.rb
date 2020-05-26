@@ -58,7 +58,7 @@ class IceCreamsController < ApplicationController
   def destroy
     @ice_cream.destroy
     respond_to do |format|
-      format.html { redirect_to ice_creams_url, notice: 'Ice cream was successfully destroyed.' }
+      format.html { redirect_to ice_creams_url, flash: { success: "Successfully deleted #{@ice_cream.name}."} }
       format.json { head :no_content }
     end
   end
