@@ -30,7 +30,7 @@ class IceCreamsController < ApplicationController
 
     respond_to do |format|
       if @ice_cream.save
-        format.html { redirect_to @ice_cream, notice: 'Ice cream was successfully created.' }
+        format.html { redirect_to @ice_cream, flash: { success: "Successfully added new ice cream: #{view_context.link_to @ice_cream.name, ice_cream_path(@ice_cream.id) }." } }
         format.json { render :show, status: :created, location: @ice_cream }
       else
         format.html { render :new }

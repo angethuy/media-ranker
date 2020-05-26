@@ -27,24 +27,34 @@ describe IceCreamsController do
   end
 
   describe "create" do
+    let(:new_ice_cream) {
+      {
+        category: "scoop",
+        name: "Totoro-toro",
+        brand: "Totoro's Frozen Delights",
+        base_flavor: "ube",
+        description: "made with ube and love"
+      }
+    }
 
     it "should create ice_cream and flash success for valid forms" do
       assert_difference("IceCream.count") do
-        post ice_creams_url, params: { ice_cream: { base_flavor: ice_cream.base_flavor, brand: ice_cream.brand, category: ice_cream.category, description: ice_cream.description, name: ice_cream.name } }
+        post ice_creams_url, params:  { ice_cream: new_ice_cream }
       end
 
       must_redirect_to ice_cream_url(IceCream.last)
-      assert_equal "Successfully added new Ice Cream: <a href=\"/ice_creams/#{ice_cream.id}\">#{ice_cream.name}</a>", flash[:success]
+      assert_equal "Successfully added new ice cream: <a href=\"/ice_creams/#{IceCream.last.id}\">#{IceCream.last.name}</a>.", flash[:success]
     end
 
-    it "should not create duplicated ice_cream, and flash danger" do
+    it "should not create duplicated ice_cream" do
       duplicated_ice_cream = IceCream.last
       assert_no_difference("IceCream.count") do
-        post ice_creams_url, params: { ice_cream: { base_flavor: duplicated_ice_cream.base_flavor, brand: duplicated_ice_cream.brand, category: duplicated_ice_cream.category, description: duplicated_ice_cream.description, name: duplicated_ice_cream.name }}
+        post ice_creams_url, params: { ice_cream: { 
+          name: duplicated_ice_cream.name,
+          category: duplicated_ice_cream.category
+         }
+        }
       end
-
-      must_redirect_to new_ice_cream_url
-      assert_equal "Ice cream already exists, please add a new one.", flash[:danger]
     end
 
     let(:yucky_ice_cream) { 
@@ -111,13 +121,14 @@ describe IceCreamsController do
       end
   
       it "creates a new valid vote and redirects back with success flash" do
+        ice_cream = ice_creams(:classic)
         assert_difference("Vote.count") do
           assert_difference("user.votes.count") do
-            post vote_ice_cream_url(ice_creams(:classic).id), params: { user: user }, headers: { HTTP_REFERER: back }
+            post vote_ice_cream_url(ice_cream.id), params: { user: user }, headers: { HTTP_REFERER: back }
           end
         end
         must_redirect_to back
-        assert_equal "Successfully voted.", flash[:success]
+        assert_equal "Successfully voted for #{ice_cream.name}.", flash[:success]
       end
   
       it "does not create duplicate votes between users and ice creams" do

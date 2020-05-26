@@ -35,7 +35,7 @@ describe IceCream do
   describe "custom methods" do
     it "retrieves all records matching a given category filter" do
       category = "scoop" 
-      result = IceCream.get_all_in_category(category)
+      result = IceCream.by_category(category)
       expect(result.length).must_equal 1
       expect(result.first.category).must_equal category
     end
