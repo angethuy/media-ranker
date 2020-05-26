@@ -46,6 +46,19 @@ class UsersController < ApplicationController
     redirect_to session.delete(:return_to), flash: result
   end
 
+  def logout 
+    logged_in = session[:user_id]
+
+    if logged_in
+      username = User.find_by(id: logged_in)
+      session.delete(:user_id)
+      redirect_to root_path, flash: { success: "Successfully logged out, bye bye #{username.name}" }
+    else 
+      redirect_to root_path, flash: { danger: "Error: no user is currently logged in." }
+    end 
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

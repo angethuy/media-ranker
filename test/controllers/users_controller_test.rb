@@ -67,13 +67,32 @@ describe UsersController do
   # end
 
   describe "logout" do
-    before do 
-      post logout, headers: { HTTP_REFERER: ref_path }
+
+    describe "while not logged in" do
+
+      it "gives error message when trying to log out" do
+        post logout_url, headers: { HTTP_REFERER: ref_path }
+        must_redirect_to root_path
+        assert_equal "Error: no user is currently logged in.", flash[:danger]
+      end
+
     end
 
-    it "clears login session entry and redirects with success" do
-      expect(session[:user_id]).must_be_nil
+    describe "while logged in" do
+
+      before do
+        get login_url, headers: { HTTP_REFERER: ref_path } 
+        post login_url, params: { username: user.name }
+      end
+
+      it "clears session and redirects with success when user is logged in" do
+        post logout_url, headers: { HTTP_REFERER: ref_path }
+        expect(session[:user_id]).must_be_nil
+        must_redirect_to root_path
+        assert_equal "Successfully logged out, bye bye #{user.name}", flash[:success]
+      end
     end
+
   end
 end
 
