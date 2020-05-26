@@ -35,15 +35,18 @@ class UsersController < ApplicationController
 
   def login 
     username = params[:username]
-    user = User.find_by(name: username)
-    if user #existing user found
-      result = { success: "Welcome back #{user.name}! Successfully logged in with ID: #{user.id}."}
+    @user = User.find_by(name: username)
+    if @user #existing user found
+      redirect_to session.delete(:return_to), flash: { success: "Welcome back #{@user.name}! Successfully logged in with ID: #{@user.id}." }
     else
-      user = User.create(name: username)
-      result = { success: "Logged in as new user #{user.name} with ID: #{user.id}." }
+      @user = User.new(name: username)
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to session.delete(:return_to), flash: { success: "Logged in as new user #{@user.name} with ID: #{@user.id}." }
+      else 
+        render "login_form"
+      end
     end
-    session[:user_id] = user.id
-    redirect_to session.delete(:return_to), flash: result
   end
 
   def logout 

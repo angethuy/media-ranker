@@ -1,6 +1,17 @@
 <main>
 <h2>Log In</h2>
 
+<% if @user.errors.any? %>
+  <ul class="errors">
+    <% @user.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 
 <%= form_with model: @user, class: 'login__form', url: login_path do %>
   <div class="form-group">
