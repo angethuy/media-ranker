@@ -2,6 +2,7 @@ require "test_helper"
 
 describe UsersController do
   let(:user) { users(:tayti) }
+  let(:ref_path) { "/i_love_ice_cream" } # simulate logging in from arbitrary referer
 
   it "should get index" do
     get users_url
@@ -14,48 +15,54 @@ describe UsersController do
   end
 
   it "should create new user" do 
-    post user_url
+    new_name = "Finne"
+    assert_difference("User.count") do
+      post users_url, params: { user: { name: new_name } }
+    end
+    expect(User.last.name).must_equal new_name
   end
 
   describe "login form" do
-    let(:ref_path){ "/i_like_ice_cream" } #simulate login from arbitrary page
 
     it "gets the login form" do
-      get login_url, params: { headers: { "HTTP_REFERER": ref_path} } 
+      get login_url, headers: { HTTP_REFERER: ref_path }
       must_respond_with :success
     end
 
     it "sets referer path (return_to) in session" do
-      get login_url, params: { headers: { "HTTP_REFERER": ref_path} }
-      expect(session[:return_to]).wont_be_empty 
-      expect(session[:return_to]).must_equal "/i_like_ice_cream"
+      get login_url, headers: { HTTP_REFERER: ref_path }
+      expect(session[:return_to]).must_equal ref_path
     end
 
   end
 
-  # describe "login" do
-  #   let(:ref_path){ "/i_like_ice_cream" }
+  describe "login" do
 
-  #   it "sets existing user to session and redirects to referer" do
-  #     post login_url, params: { username: user.name }
-  #     must_redirect_to ref_path
-  #     assert_equal "Successfully logged in.", flash[:success]
-  #     expect(session[:username]).must_equal user.name
+    before do
+      get login_url, headers: { HTTP_REFERER: ref_path } 
+    end
 
-  #   end
+    it "sets existing user to session and redirects to referer" do
+      post login_url, params: { username: user.name }
+      must_redirect_to ref_path
+      assert_equal "Welcome back #{user.name}! Successfully logged in with ID: #{user.id}.", flash[:success]
+      expect(session[:user_id]).must_equal user.id
+    end
 
-  #   it "creates a new user if none is found" do
-  #     new_username = "shiny brand new user"
-  #     assert_difference("User.count") do
-  #       post login_url, params: { username: new_username }
-  #     end
-  #   end
 
-  #   it "sets the new user to session and redirects to referer" do
-  #     new_username = "Big Bird"
-  #     post login_url, params: { username: new_username }
-  #     expect(session[:username]).must_equal new_username
-  #     must_redirect_to ref_path
-  #   end
-  # end
+    it "creates a new user if none is found" do
+      new_username = "shiny brand new user"
+      assert_difference("User.count") do
+        post login_url, params: { username: new_username }
+      end
+    end
+
+    it "sets the new user to session and redirects to referer" do
+      new_username = "Big Bird"
+      post login_url, params: { username: new_username }
+      expect(session[:user_id]).must_equal User.last.id
+      must_redirect_to ref_path
+    end
+  end
 end
+
