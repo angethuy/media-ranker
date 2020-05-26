@@ -1,6 +1,6 @@
 class IceCream < ApplicationRecord
   
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many :users, through: :votes
 
   CATEGORIES =  %w[scoop shape stick]
