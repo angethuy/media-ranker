@@ -5,8 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
     <!-- re: flash not clearing correctly unless we disable turbolinks preview https://github.com/turbolinks/turbolinks/issues/309 -->
     <meta name="turbolinks-cache-control" content="no-preview">
+  
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
