@@ -140,6 +140,6 @@ describe IceCreamsController do
     end
 
     must_redirect_to ice_creams_url
-    assert_equal "Successfully deleted ice cream.", flash[:success]
+    assert_equal "Successfully deleted #{ice_cream.name}.", flash[:success]
   end
 end
