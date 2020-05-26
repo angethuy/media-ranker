@@ -16,8 +16,8 @@
         <tr>
           <td width=80><%= ice_cream.votes.count %></td>
           <td><%= ice_cream.name %></td>
-          <td><%= ice_cream.brand %></td>
-          <td width=100><%= ice_cream.base_flavor %></td>
+          <td width=220><%= ice_cream.brand %></td>
+          <td width=150><%= ice_cream.base_flavor %></td>
           <td width=100><%= link_to 'upvote', vote_ice_cream_path(ice_cream.id), method: :post %></td>
         </tr>
       <% end %>
