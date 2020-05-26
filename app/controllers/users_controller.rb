@@ -12,11 +12,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
   # POST /users
   # POST /users.json
   def create
