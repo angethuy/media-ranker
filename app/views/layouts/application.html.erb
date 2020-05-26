@@ -19,29 +19,8 @@
       <small>Ranking the best of Ice Cream</small>
     </h1>
 
-    <nav class="app-header__nav">
-      <ul class="nav app-header__site-nav-container">
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/">View top ice cream</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/ice_creams">View all ice cream</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/ice_creams/new">Add new ice cream</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/users">View all users</a>
-        </li>
-      </ul>
-      <ul class="nav app-header__user-nav-container">
-
-        <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" href="/login">Log In</a>
-        </li>
-
-      </ul>
-    </nav>
+    <%= render partial: "layouts/nav", locals: { user: current_user} %>
+    
   </header>
 
   <% flash.each do |name, message| %>
