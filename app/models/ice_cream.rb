@@ -10,16 +10,15 @@ class IceCream < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORIES,
     message: "%{value} is not a valid category" }
 
-    
-
-  scope :top_within_category, -> (category) { 
-    where(category: category)
-    .order("name ASC") #currently ordered by name
-    # .where(COUNT(votes) > 0)
+  scope :by_category, -> (category) {
+      where(category: category)
   }
 
-  def self.by_category(category) 
-    ice_creams_in_category = IceCream.where(category: category)
-  end
+  scope :ranked_within_category, -> (category) { 
+    where(category: category).
+    order('votes_count DESC')
+  }
+
+  scope :topmost, -> { order('votes_count DESC').first }
 
 end
