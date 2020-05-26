@@ -1,0 +1,87 @@
+id,name,category,brand,base_flavor,description
+1,Oregon Strawberry,scoop,Tillamook,strawberry,sweet strawberry ice cream with ripe Oregon strawberry pieces
+2, Old-Fashioned Vanilla,scoop,Tillamook,vanilla,rich vanilla ice cream made with Tillamook's special blend of the very best vanillas
+3,Tillamook Mudslide,scoop,Tillamook,chocolate,smooth chocolate ice cream with a ribbon of rich fudge and chocolatey chips
+4,Gimme Smore,scoop,Ben & Jerry's,marshmallow,"Toasted Marshmallow Ice Cream with Chocolate Cookie Swirls, Graham Cracker Swirls & Fudge"
+5,Netflix & Chill'd,scoop,Ben & Jerry's,peanut butter,Peanut Butter Ice Cream with Sweet & Salty Pretzel Swirls & Fudge Brownies
+6,Toffee Brittle Ice Cream Bars,stick,Lucerne,vanilla,vanilla ice cream on a stick dipped in a toffee-chocolate coating
+7,Creamy Orange Bars,stick,Lucerne,vanilla,vanilla ice cream on a stick covered with a refreshing orange cream juice coating
+8,Mint Chocolate Chip Ice Cream Sandwiches,shape,Lucerne,mint,mint ice cream with chocolate chips sandwiched between two chocolate cookies
+9,Butter Pecan,scoop,Dreyers,vanilla,A sweet treat of rich buttery vanilla ice cream and perfectly crunchy roasted pecans
+10,Salted Caramel,scoop,Bi-Rite,caramel,"sweet, creamy, bitter, and salty, perfectly hitting every note"
+11,Honey Lavender,scoop,Bi-Rite,lavender,Steeped with organic dried lavender and paired with outstanding hyper-local honey from Bay Area Bee Company
+12,Ricanelas,scoop,Bi-Rite,cinnamon,"A staff and guest favorite, this cinnamon ice cream with snickerdoodle cookies is a perfect pairing with all our ice cream flavors"
+13,Melon,stick,Melona,melon,stick of melon goodness
+14,Coconut,stick,Melona,coconut,stick of coconut goodness
+15,Banana,stick,Melona,banana,stick of banana goodness 
+16,Mangohelada,stick,Michoacana,mango,mango and chamoy popsicle
+17,Fresas con Crema,stick,Michoacana,strawberry,creamy strawberries popsicle
+18,Choco-Fresa,stick,Michoacana,strawberry,cream strawberries popsicle coated with chocolate
+19,Coco,stick,Michoacana,coconut,creamy coconut popsicle
+20,Galletas con Crema,stick,Michoacana,vanilla,cookies and cream popsicle
+21,Chicle,stick,Michoacana,bubblegum,blue popsicle studded with bubble gum
+22,Strawberry Shortcake Bar,stick,Blue Ribbon,strawberry,the best strawberry bar ever
+23,Vanilla Sundae Cones,shape,Blue Ribbon,vanilla,vanilla ice cream in a cone with a peanut and chocolate topping
+24,Double Chocolate Bar,stick,Blue Ribbon,chocolate,double chocolatey goodness on a stick
+25,Vanilla Ice Cream Sandwiches,shape,Blue Ribbon,vanilla,vanilla ice cream sandwiched between two chocolate cookies
+26,Cool Tubes Orange Sherbet,stick,Blue Ribbon,orange,creamy orange sorbet in a push tubes 
+27,Cookies 'n Cream Sundae Cone,shape,Blue Ribbon,vanilla,cookies n cream ice cream in a cone covered in a cookie coating
+28,The Classic Sandwich,shape,Garden Creamery,vanilla,Madagascar vanilla mouse sandwiched between Mom's oatmeal cookies half dipped in dark chocolate
+29,Bananas on the Rum,scoop,Ben & Jerry's,banana,Banana Ice Cream
+30,Banana Spit,scoop,Ben & Jerry's,banana,"Banana & Strawberry Ice Creams with Walnuts, Fudge Chunks, & a Fudge Swirl"
+31,Brownie Batter,scoop,Ben & Jerry's,chocolate,Brownie Batter Ice Cream with a Rich Brownie Batter Swirl
+32,Butter Pecan,scoop,Ben & Jerry's,butter,Rich Buttery Ice Cream with Roasted Pecans
+33,Cake Batter,scoop,Ben & Jerry's,cake,Yellow Cake Batter Ice Cream with a Chocolate Frosting Swirl
+34,Cherry Garcia,scoop,Ben & Jerry's,cherry,Cherry Ice Cream with Cherries & Fudge Flakes
+35,Chocolate,scoop,Ben & Jerry's,chocolate,SMOOTH like Jagger Chocolate Ice Cream Made with Fair Trade Certified Cocoa
+36,Chocolate Chip Cookie Dough,scoop,Ben & Jerry's,vanilla,Vanilla Ice Cream with Gobs of Chocolate Chip Cookie Dough
+37,Chocolate Fudge Brownie,scoop,Ben & Jerry's,chocolate,Chocolate Ice Cream with Fudge Brownies
+38,Chocolate Macadamia,scoop,Ben & Jerry's,chocolate,Chocolate & Vanilla Ice Creams with Macadamia Nuts
+39,Chocolate Peanut Butter Swirl,scoop,Ben & Jerry's,chocolate,Milk Chocolate Ice Cream with a Thick Peanut Butter Swirl
+40,Chocolate Therapy,scoop,Ben & Jerry's,chocolate,Chocolate Ice Cream with Chocolate Cookies & Swirls of Chocolate Pudding Ice Cream
+41,Chubby Hubby,scoop,Ben & Jerry's,vanilla,Fudge-Covered Peanut Butter-Filled Pretzels in Vanilla Malt Ice Cream Rippled with Fudge & Peanut Butter
+42,Chunky Monkey,scoop,Ben & Jerry's,banana,Banana Ice Cream with Fudge Chunks & Walnuts
+43,Cinnamon Buns,scoop,Ben & Jerry's,caramel,Caramel Ice Cream with Cinnamon Bun Dough & a Caramel Cinnamon Struesel Swirl
+44,Coconut Seven Layer Bar,scoop,Ben & Jerry's,coconut,"Coconut Ice Cream with Coconut & Fudge Flakes, Walnuts & Swirls of Graham Cracker & Butterscotch"
+45,Coffee,scoop,Ben & Jerry's,coffee,Coffee Ice Cream Made with Fair Trade Certified Coffee Extract
+46,Coffee Coffee BuzzBuzzBuzz,scoop,Ben & Jerry's,coffee,"Coffee Ice Cream Made with Fair Trade Certified Coffee Extract, with Espresso Bean Fudge Chunks"
+47,Coffee HEATH Bar Crunch,scoop,Ben & Jerry's,coffeee,Coffee Ice Cream with Chunks of HEATH Bar Crunch (made with Fair Trade Certified coffee)
+48,Crème Brûlée,scoop,Ben & Jerry's,custard,Sweet Custard Ice Cream with a Carmelized Sugar Swirl
+49,Dave Matthews Band Magic Brownies Encore Edition,scoop,Ben & Jerry's,raspberry,Black Raspberry Ice Cream Swirled with Sweet Cream Ice Cream & Fudgy Brownies
+50,Dublin Mudslide,scoop,Ben & Jerry's,irish cream,Irish Cream Liqueur Ice Cream with Chocolate Chocolate Chip Cookies & a Coffee Fudge Swirl
+51,Everything But The...,scoop,Ben & Jerry's,vanilla,"Vanilla HEATH Bar Crunch / New York Super Fudge Chunk / Peanut Butter Cup. A Collision of Chocolate Ice Cream & Vanilla Ice Cream mixed with HEATH Bar Chunks, White Chocolatey Chunks, Peanut Butter Cups & Chocolatey-Covered Almonds"
+52,Fossil Fuel,scoop,Ben & Jerry's,sweet cream,"Sweet Cream Ice Cream with Chocolate Cookie Pieces, Fudge Dinosaurs & a Fudge Swirl"
+53,Goodbye Yellow Brick Road,scoop,Ben & Jerry's,chocolate,"Chocolate Ice Cream with Peanut Butter Cookie Dough, Butter Brickle & White Chocolate Chunks"
+54,Half Baked,scoop,Ben & Jerry's,chocolate,(Chocolate Fudge Brownies meets Chocolate Chip Cookie Dough) A Crazy Concoction of Chocolate & Vanilla Ice Cream mixed with Fudge Brownies & Gobs of Chocolate Chip Cookie Dough
+55,Imagine Whirled Peace,scoop,Ben & Jerry's,caramel,Caramel & Sweet Cream Ice Creams Swirled with Fudge Peace Signs & Toffee Cookie Pieces
+56,Karma sutra,scoop,Ben & Jerry's,chocolate,A Core of Caramel Encircled by Chocolate & Caramel Ice Creams & Fudge Chips
+57,Mint Chocolate Chunk,scoop,Ben & Jerry's,mint,Mint Ice Cream Made with All Natural Peppermint Extract & Fudge Chunks
+58,Mint Chocolate Cookie,scoop,Ben & Jerry's,mint,Peppermint Ice Cream with Oxford Creme Cookies
+59,Mission to Marzipan,scoop,Ben & Jerry's,sweet cream,Sweet Cream Ice Cream with Almond Cookies & a Marzipan Swirl
+60,Neapolitan Dynamite,scoop,Ben & Jerry's,cherry,Cherry Garcia & Chocolate Fudge Brownie Ice Creams
+61,New York Super Fudge Chunk,scoop,Ben & Jerry's,chocolate,"Chocolate Ice Cream with White & Dark Fudge Chunks, Pecans, Walnuts, & Fudge-Covered Almonds"
+62,Oatmeal Cookie Chunk,scoop,Ben & Jerry's,cinnamon,Sweet Cream Cinnamon Ice Cream with Chunks of Oatmeal Cookies & Fudge
+63,ONE Cheesecake Brownie,scoop,Ben & Jerry's,cheesecake,Cheesecake Ice Cream with Cheesecake Brownie Chunks
+64,Orange & Cream,scoop,Ben & Jerry's,orange,Orange Sorbet Swirled with Vanilla Ice Cream
+65,Peanut Butter Cup,scoop,Ben & Jerry's,peanut butter,Peanut butter Ice Cream with Real Peanut Butter Cups
+66,Phish Food,scoop,Ben & Jerry's,chocolate,Chocolate Ice Cream with Gooey Marshmallow & Caramel Swirls & Fudge Fish
+67,Pistachio Pistachio,scoop,Ben & Jerry's,pistachio,Pistachio Ice Cream with Lightly Roasted Pistachios
+68,S'mores,scoop,Ben & Jerry's,chocolate,Chocolate Ice Cream with Fudge Chunks & Toasted Marshmallow & Graham Cracker Swirls
+69,Stephen Colbert's AmeriCone Dream,scoop,Ben & Jerry's,vanilla,Vanilla Ice Cream with Fudge Covered Waffle Cone Pieces & a Caramel Swirl
+70,Strawberry,scoop,Ben & Jerry's,strawberry,Strawberry Ice Cream with Frozen Strawberries
+71,Strawberry Cheesecake,scoop,Ben & Jerry's,strawberry,Strawberry Cheesecake Ice Cream with Strawberries & a Thick Graham Cracker Swirl
+72,Sweet Cream & Cookies,scoop,Ben & Jerry's,sweet cream,Sweet Cream Ice Cream with Whole & Broken Chocolate Sandwich Cookies
+73,Triple Caramel Chunk,scoop,Ben & Jerry's,caramel,Caramel Ice Cream with a Swirl of Caramel & Fudge Covered Caramel Chunks
+74,Turtle Soup,scoop,Ben & Jerry's,vanilla,Vanilla Ice Cream with Fudge-Covered Caramel Cashews & a Caramel Swirl
+75,Vanilla,scoop,Ben & Jerry's,vanilla,SMOOTH Vanilla Ice Cream Made with Fair Trade Certified Vanilla
+76,Vanilla Caramel Fudge,scoop,Ben & Jerry's,vanilla,Vanilla Ice Cream with Swirls of Caramel & Fudge
+77,Vanilla HEATH Bar Crunch,scoop,Ben & Jerry's,vanilla,Vanilla Ice Cream with Heath Bars
+78,White Russian,scoop,Ben & Jerry's,coffee,Coffee Ice Cream with Kahlua Coffee Liqueur
+79,Willie Nelson’s Country Peach Cobbler,scoop,Ben & Jerry's,peach,Peach Ice Cream with Cinnamon-Sugar Shortbread Pieces & a Peach Swirl
+80,Oregon Strawberry Really Creamy Sandwich,shape,Tillamook,strawberry,strawberry ice cream sandwiched between two chocolate dipped waffle cookies
+81,Double Peanut Butter,shape,Magnum,peanut butter,"peanut butter ice cream dipped in a chocolatey coating, peanut butter sauce, and milk chocolate"
+82,Girl Scouts Thin Mint,shape,Good Humor,chocolate,based on the beloved girl scout's treat
+83,Vanilla King Cone,shape,Good Humor,vanilla,the ruler of all vanilla cones
+84,Giant Neapolitan Sandwich,shape,Good Humor,neapolitan,a giant delicious sandwich featuring three of the classic flavors,
+85,chocolate chip cookie sandwich,shape,Good Humor,vanilla,vanilla sandwiched between two chocolate chip cookies
+86,Spumoni,scoop,Mitchell's,vanilla,"Madagascar Bourbon Vanilla blend and chocolate ice cream with natural rum flavoring, roasted California almonds, raisins, cherries and other dried fruit"
