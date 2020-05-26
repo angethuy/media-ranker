@@ -85,44 +85,61 @@ describe IceCreamsController do
   # end
 
   describe "vote" do
-    before do
-      get login_url, headers: { HTTP_REFERER: ref_path } 
-      post login_url, params: { username: user.name }
-      post vote_ice_cream_url(ice_cream.id), params: {user: user}, headers: { HTTP_REFERER: back }
-    end
-
     let(:back) { "/vote_origin_path" }
 
-    it "creates a new valid vote and redirects back with success flash" do
-      assert_difference("Vote.count") do
-        post vote_ice_cream_url(ice_creams(:classic).id), params: { user: user }, headers: { HTTP_REFERER: back }
+    describe "voting while not logged in" do
+
+      it "does not create vote when no one is logged in" do
+        assert_no_difference("Vote.count") do
+          post vote_ice_cream_url(ice_creams(:classic).id), params: { user: user }, headers: { HTTP_REFERER: back }
+        end
       end
-      must_redirect_to back
-      assert_equal "Successfully voted.", flash[:success]
+
+      it "redirects back with a danger flash" do
+        post vote_ice_cream_url(ice_creams(:classic).id), params: { user: user }, headers: { HTTP_REFERER: back }
+        must_redirect_to back
+        assert_equal "Not logged in.", flash[:danger]
+      end
+
     end
 
-    it "does not create duplicate votes between users and ice creams" do
-      assert_no_difference("Vote.count") do
+    describe "voting while logged in" do
+      before do
+        get login_url, headers: { HTTP_REFERER: ref_path } 
+        post login_url, params: { username: user.name }
         post vote_ice_cream_url(ice_cream.id), params: {user: user}, headers: { HTTP_REFERER: back }
       end
+  
+      it "creates a new valid vote and redirects back with success flash" do
+        assert_difference("Vote.count") do
+          assert_difference("user.votes.count") do
+            post vote_ice_cream_url(ice_creams(:classic).id), params: { user: user }, headers: { HTTP_REFERER: back }
+          end
+        end
+        must_redirect_to back
+        assert_equal "Successfully voted.", flash[:success]
+      end
+  
+      it "does not create duplicate votes between users and ice creams" do
+        assert_no_difference("Vote.count") do
+          post vote_ice_cream_url(ice_cream.id), params: {user: user}, headers: { HTTP_REFERER: back }
+        end
+      end
+  
+      it "redirects back and flashes danger on duplicate votes" do
+        post vote_ice_cream_url(ice_cream.id), params: {user: user}, headers: { HTTP_REFERER: back }
+        must_redirect_to back
+        assert_equal "#{user.name} already upvoted #{ice_cream.name}", flash[:danger]
+      end
     end
-
-    it "redirects back and flashes danger on duplicate votes" do
-      post vote_ice_cream_url(ice_cream.id), params: {user: user}, headers: { HTTP_REFERER: back }
-      must_redirect_to back
-      assert_equal "#{user.name} already upvoted #{ice_cream.name}", flash[:danger]
-    end
-
-   
-
   end
 
-  # it "should destroy ice_cream" do
-  #   assert_difference("IceCream.count", -1) do
-  #     delete ice_cream_url(@ice_cream.id)
-  #   end
+  it "should destroy ice_cream" do
+    assert_difference("IceCream.count", -1) do
+      delete ice_cream_url(ice_cream.id)
+    end
 
-  #   must_redirect_to ice_creams_url
-  #   assert_equal "Successfully deleted ice cream.", flash[:success]
-  # end
+    must_redirect_to ice_creams_url
+    assert_equal "Successfully deleted ice cream.", flash[:success]
+  end
 end
