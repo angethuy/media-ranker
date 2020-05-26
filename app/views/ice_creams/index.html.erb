@@ -1,29 +1,5 @@
-<h1>Ice Creams</h1>
+<main>
 
-<table>
-  <thead>
-    <tr>
-      <th>votes</th>
-      <th>ice cream name</th>
-      <th>brand</th>
-      <th>base flavor</th>
-      <th>upvote</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ice_creams.each do |ice_cream| %>
-      <tr>
-        <td><%= ice_cream.votes.count %></td>
-        <td><%= ice_cream.name %></td>
-        <td><%= ice_cream.brand %></td>
-        <td><%= ice_cream.base_flavor %></td>
-        <td><%= link_to 'upvote', vote_ice_cream_path(ice_cream.id), method: :post %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Ice Cream', new_ice_cream_path %>
+<h2>List of Ice Creams</h2>
+<%= render partial: "/ice_creams/ice_creams_table" %>
+</main>
