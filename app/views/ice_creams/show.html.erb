@@ -1,27 +1,40 @@
-<p>
-  <strong>Name:</strong>
-  <%= @ice_cream.name %>
-</p>
+<main>
+  <section class="show__info">
+    <h2><%= @ice_cream.name %></h2>
+    <p>Created by: <%= @ice_cream.brand %></p>
+    <p>Base flavor: <%= @ice_cream.base_flavor %></p>
+    <p>Description: <%= @ice_cream.description %></p>
+  </section>
 
-<p>
-  <strong>Category:</strong>
-  <%= @ice_cream.category %>
-</p>
+  <section class="show__controls">
+    <%= link_to "Back to ice creams", root_path, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_ice_cream_path(@ice_cream), class: "btn btn-primary" %>
+    <%= link_to 'Upvote', vote_ice_cream_path(@ice_cream.id), method: :post, class: "btn btn-primary" %>
+    <%= link_to 'Delete', ice_cream_url, method: :delete, class: "btn btn-danger", data: { confirm: "are you sure?"} %>
+  </section>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @ice_cream.brand %>
-</p>
+  <section class="works-votes__container">
+    <h3 class="works-votes__header"><%=pluralize(@ice_cream.votes.count, "vote")%> for this ice cream (<%= @ice_cream.category%>)</h3>
+  </section>
 
-<p>
-  <strong>Base flavor:</strong>
-  <%= @ice_cream.base_flavor %>
-</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ice_cream.votes.each do |vote| %>
+      <tr>
+        <td><%= link_to vote.user.name, user_path(vote.user_id)%></td>
+        <td><%= vote.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ice_cream.description %>
-</p>
 
-<%= link_to 'Edit', edit_ice_cream_path(@ice_cream) %> |
-<%= link_to 'Back', ice_creams_path %>
+</main>
+
+

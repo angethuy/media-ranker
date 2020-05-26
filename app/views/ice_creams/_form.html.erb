@@ -18,22 +18,22 @@
   </div>
   <div class="form-group">
     <%= f.label(:name, "name") %>
-    <%= f.text_field :name, value: nil, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label(:brand, "brand") %>
-    <%= f.text_field :brand, value: nil, class: 'form-control' %>
+    <%= f.text_field :brand, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label(:base_flavor, "base flavor") %>
-    <%= f.text_field :base_flavor, value: nil, class: 'form-control' %>
+    <%= f.text_field :base_flavor, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label(:description, "description") %>
-    <%= f.text_area :description, value: nil, class: 'form-control'%>
+    <%= f.text_area :description, class: 'form-control'%>
   </div>
   <div class="form-group">
-    <%= f.submit("Create Ice Cream", options = { class: "btn btn-primary" }) %>
+    <%= f.submit("#{action_name} ice cream", options = { class: "btn btn-primary" }) %>
   </div>
 <% end %>
 </section>
