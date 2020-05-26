@@ -11,7 +11,8 @@ class IceCream < ApplicationRecord
     message: "%{value} is not a valid category" }
 
   scope :by_category, -> (category) {
-      where(category: category)
+      where(category: category).
+      order('id ASC')
   }
 
   scope :ranked_within_category, -> (category) { 

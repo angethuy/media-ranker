@@ -77,7 +77,7 @@ class IceCreamsController < ApplicationController
     }
 
     vote = Vote.create(vote_data)
-    result = vote.save ? { success: "Successfully voted." } : { danger: "Voting failed." }
+    result = vote.save ? { success: "Successfully voted for #{@ice_cream.name}." } : { danger: "Voting failed." }
     redirect_back(fallback_location: root_path, flash: result)
   end
 
