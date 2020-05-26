@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:edit, :new, :update, :destroy]
-  resources :votes, only: [:create]
   
 end
